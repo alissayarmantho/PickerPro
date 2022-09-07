@@ -1,6 +1,6 @@
 # picker_pro
 
-Ninja Dojo Hackathon 2022
+EG3301R
 
 ## Getting Started
 
