@@ -90,7 +90,10 @@ class _ItemDraggableScrollSheetState extends State<ItemDraggableScrollSheet> {
                     : () {
                         // showAboutDialog(context: context);
                         batchController.postBatchPicked();
-                        batchController.nextBatchIndex();
+                        if (batchController.activeBatchIndex.value <
+                            batchController.batches.length - 1) {
+                          batchController.nextBatchIndex();
+                        }
                       },
               ),
             ),
