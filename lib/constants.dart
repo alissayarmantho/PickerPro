@@ -1,10 +1,115 @@
 import 'package:flutter/material.dart';
 
 const primaryColor = Color.fromRGBO(196, 32, 50, 1);
+const primaryDarkColor = Color.fromRGBO(101, 0, 0, 1);
 const primaryLightColor = Color.fromRGBO(234, 204, 205, 1);
 const primaryAccentColor = Color.fromRGBO(212, 79, 91, 1);
 
 const routeId = "1480106";
+const batchPickingData = [
+  {
+    "id": 1,
+    "name": "Batch Picking 1",
+    "items": [
+      {
+        "name": "Maggi Concentrated Vegetarian",
+        "binNo": 123,
+        "img": "assets/maggi_concentrated_vegetarian.jpg",
+        "orders": [
+          {"quantity": "2 BTL", "orderNo": 779},
+          {"quantity": "3 BTL", "orderNo": 782}
+        ]
+      },
+      {
+        "name": "Maggi Noodles",
+        "binNo": 234,
+        "img": "assets/maggi_noodles.jpg",
+        "orders": [
+          {"quantity": "1 BOX", "orderNo": 780},
+          {"quantity": "1 BOX", "orderNo": 781}
+        ]
+      },
+      {
+        "name": "Maggi Concentrated Vegetarian",
+        "binNo": 123,
+        "img": "assets/maggi_concentrated_vegetarian.jpg",
+        "orders": [
+          {"quantity": "2 BTL", "orderNo": 779},
+          {"quantity": "3 BTL", "orderNo": 782}
+        ]
+      },
+      {
+        "name": "Maggi Noodles",
+        "binNo": 234,
+        "img": "assets/maggi_noodles.jpg",
+        "orders": [
+          {"quantity": "1 BOX", "orderNo": 780},
+          {"quantity": "1 BOX", "orderNo": 781}
+        ]
+      },
+      {
+        "name": "Maggi Concentrated Vegetarian",
+        "binNo": 123,
+        "img": "assets/maggi_concentrated_vegetarian.jpg",
+        "orders": [
+          {"quantity": "2 BTL", "orderNo": 779},
+          {"quantity": "3 BTL", "orderNo": 782}
+        ]
+      },
+      {
+        "name": "Maggi Noodles",
+        "binNo": 234,
+        "img": "assets/maggi_noodles.jpg",
+        "orders": [
+          {"quantity": "1 BOX", "orderNo": 780},
+          {"quantity": "1 BOX", "orderNo": 781}
+        ]
+      },
+      {
+        "name": "Maggi Concentrated Vegetarian",
+        "binNo": 123,
+        "img": "assets/maggi_concentrated_vegetarian.jpg",
+        "orders": [
+          {"quantity": "2 BTL", "orderNo": 779},
+          {"quantity": "3 BTL", "orderNo": 782}
+        ]
+      },
+      {
+        "name": "Maggi Noodles",
+        "binNo": 234,
+        "img": "assets/maggi_noodles.jpg",
+        "orders": [
+          {"quantity": "1 BOX", "orderNo": 780},
+          {"quantity": "1 BOX", "orderNo": 781}
+        ]
+      }
+    ],
+  },
+  {
+    "id": 1,
+    "name": "Batch Picking 2",
+    "items": [
+      {
+        "name": "Maggi Concentrated Vegetarian",
+        "binNo": 123,
+        "img": "assets/maggi_concentrated_vegetarian.jpg",
+        "orders": [
+          {"quantity": "2 BTL", "orderNo": 780},
+          {"quantity": "3 BTL", "orderNo": 782}
+        ]
+      },
+      {
+        "name": "Maggi Noodles",
+        "binNo": 234,
+        "img": "assets/maggi_noodles.jpg",
+        "orders": [
+          {"quantity": "1 BOX", "orderNo": 780},
+          {"quantity": "1 BOX", "orderNo": 781}
+        ]
+      }
+    ],
+  }
+];
 const data = {
   "1480106": {
     "600304": [

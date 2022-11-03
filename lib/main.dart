@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:picker_pro/constants.dart';
-import 'package:picker_pro/controller/map_controller.dart';
-import 'package:picker_pro/controller/waypoints_controller.dart';
-import 'package:picker_pro/widgets/map_draggable_scroll_sheet.dart';
+import 'package:picker_pro/controller/batch_controller.dart';
+import 'package:picker_pro/widgets/item_draggable_scroll_sheet.dart';
 
 void main() => runApp(const PickerProApp());
 
@@ -13,14 +11,9 @@ class PickerProApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MapController mapController = Get.put<MapController>(MapController());
-    final WaypointController waypointController =
-        Get.put<WaypointController>(WaypointController());
-    mapController.initialize();
-    Future.delayed(const Duration(seconds: 3), () {
-      mapController.moveCameraToFirstWaypoint();
-    });
-    waypointController.fetchWaypoints();
+    final BatchController batchController =
+        Get.put<BatchController>(BatchController());
+    batchController.fetchBatches();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -51,26 +44,17 @@ class PickerProApp extends StatelessWidget {
           backgroundColor: primaryColor,
         ),
         body: Obx(
-          () => mapController.isLoading.value
+          () => batchController.isLoading.value
               ? Center(child: CircularProgressIndicator(key: UniqueKey()))
               : Stack(
                   children: [
                     Positioned.fill(
-                      bottom: 130,
-                      child: GoogleMap(
-                        zoomControlsEnabled: false,
-                        markers: Set<Marker>.from(mapController.markers),
-                        polylines: Set<Polyline>.from(mapController.polylines),
-                        onMapCreated: mapController.onMapCreated,
-                        myLocationEnabled: true,
-                        myLocationButtonEnabled: true,
-                        initialCameraPosition: CameraPosition(
-                          target: mapController.center.value,
-                          zoom: 15.0,
-                        ),
-                      ),
-                    ),
-                    const MapDraggableScrollSheet(),
+                        bottom: 130,
+                        child: Image.asset(batchController
+                            .batches[batchController.activeBatchIndex.value]
+                            .items[batchController.activeItemIndex.value]
+                            .img)),
+                    const ItemDraggableScrollSheet(),
                   ],
                 ),
         ),

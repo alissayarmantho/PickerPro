@@ -49,8 +49,17 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/icon.jpg"
-
+  adaptive_icon_background: "#ffffff"
+  image_path: "assets/Logo2.png"
+  web:
+    generate: true
+    image_path: "assets/Logo2.png"
+    background_color: "#FFFFFF"
+    theme_color: "#C42032"
+  windows:
+    generate: true
+    image_path: "assets/Logo2.png"
+    icon_size: 48
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -72,6 +81,9 @@ flutter:
   assets:
     - assets/
     - assets/icon.jpg
+    - assets/PickerPro.png
+    - assets/Logo.png
+    - assets/Logo2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
