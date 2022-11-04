@@ -25,6 +25,7 @@ class BatchListScreen extends StatelessWidget {
                   child: ListTile(
                     onTap: () {
                       batchController.setActiveBatchIndex(index);
+                      batchController.setActiveIndex(0);
                       Get.to(() => BatchPageScreen());
                     },
                     title: Text(batchController.batches[index].name),

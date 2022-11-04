@@ -153,6 +153,10 @@ class BatchController extends GetxController {
     isLoading(true);
     batches[activeBatchIndex.value].items[activeItemIndex.value].isPicked =
         true;
+    if (activeItemIndex.value ==
+        batches[activeBatchIndex.value].items.length - 1) {
+      postBatchPicked();
+    }
     try {
       await BatchService.postItemPicked().then((res) {
         Get.snackbar(
