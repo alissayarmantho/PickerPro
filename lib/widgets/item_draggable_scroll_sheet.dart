@@ -42,6 +42,7 @@ class _ItemDraggableScrollSheetState extends State<ItemDraggableScrollSheet> {
           child: Row(children: [
             Obx(
               () => FloatingActionButton(
+                heroTag: "prev_batch",
                 child: const Icon(Icons.arrow_back_rounded),
                 disabledElevation: 0,
                 backgroundColor: batchController.activeBatchIndex.value == 0
@@ -59,6 +60,7 @@ class _ItemDraggableScrollSheetState extends State<ItemDraggableScrollSheet> {
             ),
             Obx(
               () => FloatingActionButton(
+                heroTag: "next_batch",
                 backgroundColor: batchController.activeBatchIndex.value ==
                         batchController.batches.length - 1
                     ? Colors.grey.shade300
@@ -78,14 +80,17 @@ class _ItemDraggableScrollSheetState extends State<ItemDraggableScrollSheet> {
             ),
             Obx(
               () => FloatingActionButton(
-                backgroundColor: batchController.activeBatchIndex.value ==
-                        batchController.batches.length - 1
+                heroTag: "complete_batch",
+                backgroundColor: batchController
+                        .batches[batchController.activeBatchIndex.value]
+                        .isComplete
                     ? Colors.grey.shade300
                     : Colors.green,
                 disabledElevation: 0,
                 child: const Icon(Icons.check),
-                onPressed: batchController.activeBatchIndex.value ==
-                        batchController.batches.length - 1
+                onPressed: batchController
+                        .batches[batchController.activeBatchIndex.value]
+                        .isComplete
                     ? null
                     : () {
                         // showAboutDialog(context: context);

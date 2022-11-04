@@ -3,14 +3,17 @@ class Batch {
     required this.id,
     required this.name,
     required this.items,
+    required this.isComplete,
   });
   late final int id;
   late final String name;
   late final List<Items> items;
+  late bool isComplete;
 
   Batch.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
+    isComplete = json['isComplete'];
     items = List.from(json['items']).map((e) => Items.fromJson(e)).toList();
   }
 
@@ -18,6 +21,7 @@ class Batch {
     final _data = <String, dynamic>{};
     _data['id'] = id;
     _data['name'] = name;
+    _data['isComplete'] = isComplete;
     _data['items'] = items.map((e) => e.toJson()).toList();
     return _data;
   }
@@ -26,20 +30,25 @@ class Batch {
 class Items {
   Items({
     required this.name,
+    required this.isPicked,
     required this.binNo,
     required this.orders,
+    required this.notes,
     required this.img,
   });
-  late final String name;
-  late final String img;
-  late final int binNo;
+  late final String name, img;
+  late String notes;
+  late int binNo;
+  late bool isPicked;
   late final List<Orders> orders;
 
   Items.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     binNo = json['binNo'];
-    orders = List.from(json['orders']).map((e) => Orders.fromJson(e)).toList();
     img = json['img'];
+    notes = json['notes'];
+    isPicked = json['isPicked'];
+    orders = List.from(json['orders']).map((e) => Orders.fromJson(e)).toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -47,6 +56,8 @@ class Items {
     _data['name'] = name;
     _data['binNo'] = binNo;
     _data['img'] = img;
+    _data['notes'] = notes;
+    _data['isPicked'] = isPicked;
     _data['orders'] = orders.map((e) => e.toJson()).toList();
     return _data;
   }

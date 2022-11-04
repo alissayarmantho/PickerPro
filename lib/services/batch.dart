@@ -23,6 +23,38 @@ class BatchService {
     }
   }
 
+  static Future<List<Batch>> updateBinNumber(
+      {required String name, required int binNo}) async {
+    String url = baseApi + "/getExampleJson";
+    try {
+      var response = await BaseApi.get(url: url);
+      var jsonString = jsonDecode(response.body);
+      if (response.statusCode == 200) {
+        return List<Batch>.from(jsonString.map((x) => Batch.fromJson(x)));
+      } else {
+        return Future.error("Error posting item picked");
+      }
+    } catch (e) {
+      return Future.error("Posting item pick error");
+    }
+  }
+
+  static Future<List<Batch>> updateItemNotes(
+      {required String name, required String notes}) async {
+    String url = baseApi + "/getExampleJson";
+    try {
+      var response = await BaseApi.get(url: url);
+      var jsonString = jsonDecode(response.body);
+      if (response.statusCode == 200) {
+        return List<Batch>.from(jsonString.map((x) => Batch.fromJson(x)));
+      } else {
+        return Future.error("Error posting item picked");
+      }
+    } catch (e) {
+      return Future.error("Posting item pick error");
+    }
+  }
+
   static Future<List<Batch>> postItemPicked() async {
     String url = baseApi + "/getExampleJson";
     try {

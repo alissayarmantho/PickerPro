@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:picker_pro/constants.dart';
 import 'package:picker_pro/controller/batch_controller.dart';
@@ -8,8 +9,11 @@ import 'package:picker_pro/models/batch.dart';
 import 'package:picker_pro/widgets/primary_button.dart';
 import 'package:picker_pro/widgets/secondary_button.dart';
 
-Widget _buildAddNotesPopUpDialog(BuildContext context) {
-  TextEditingController _notesController = TextEditingController();
+Widget _buildAddNotesPopUpDialog(
+    BuildContext context, BatchController batchController) {
+  TextEditingController _notesController = TextEditingController(
+      text: batchController.batches[batchController.activeBatchIndex.value]
+          .items[batchController.activeItemIndex.value].notes);
   return new AlertDialog(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10),
@@ -47,6 +51,7 @@ Widget _buildAddNotesPopUpDialog(BuildContext context) {
         text: "Save",
         key: UniqueKey(),
         press: () {
+          batchController.updateItemNotes(text: _notesController.text);
           Navigator.pop(context);
         },
         widthRatio: 0.3,
@@ -55,7 +60,8 @@ Widget _buildAddNotesPopUpDialog(BuildContext context) {
   );
 }
 
-Widget _buildEditBinPopUpDialog(BuildContext context) {
+Widget _buildEditBinPopUpDialog(
+    BuildContext context, BatchController batchController) {
   TextEditingController _binNumController = TextEditingController();
   return new AlertDialog(
     shape: RoundedRectangleBorder(
@@ -69,6 +75,10 @@ Widget _buildEditBinPopUpDialog(BuildContext context) {
         TextFormField(
           controller: _binNumController,
           style: TextStyle(fontSize: 18),
+          keyboardType: TextInputType.number,
+          inputFormatters: <TextInputFormatter>[
+            FilteringTextInputFormatter.digitsOnly
+          ],
           decoration: InputDecoration(
             hintText: 'Bin Number',
             enabledBorder: UnderlineInputBorder(
@@ -100,6 +110,7 @@ Widget _buildEditBinPopUpDialog(BuildContext context) {
         text: "Save",
         key: UniqueKey(),
         press: () {
+          batchController.updateBinNumber(int.tryParse(_binNumController.text));
           Navigator.pop(context);
         },
         widthRatio: 0.3,
@@ -138,6 +149,7 @@ class _StepperWidgetState extends State<StepperWidget> {
                     text: "Picked",
                     press: () async {
                       batchController.postItemPicked();
+                      details.onStepContinue!();
                     },
                     widthRatio: 0.20,
                     marginLeft: 0,
@@ -188,12 +200,33 @@ class _StepperWidgetState extends State<StepperWidget> {
             .batches[batchController.activeBatchIndex.value].items
             .map((Items item) {
           return Step(
-            title: Text(
-              item.name,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Flexible(
+                  child: Text(
+                    item.name,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                Obx(() => batchController.isLoading.value
+                    ? item.isPicked
+                        ? SizedBox(width: 10)
+                        : Container()
+                    : item.isPicked
+                        ? SizedBox(width: 10)
+                        : Container()),
+                Obx(() => batchController.isLoading.value
+                    ? item.isPicked
+                        ? Icon(Icons.check_circle, color: Colors.green)
+                        : Container()
+                    : item.isPicked
+                        ? Icon(Icons.check_circle, color: Colors.green)
+                        : Container()),
+              ],
             ),
             content: Container(
               alignment: Alignment.centerLeft,
@@ -205,10 +238,14 @@ class _StepperWidgetState extends State<StepperWidget> {
                     padding: EdgeInsets.only(bottom: 10),
                     child: Row(
                       children: [
-                        Text(
-                          "Bin no: " + item.binNo.toString(),
-                          style: TextStyle(
-                            fontSize: 16,
+                        Obx(
+                          () => Text(
+                            batchController.isLoading.value
+                                ? "Bin no: " + item.binNo.toString()
+                                : "Bin no: " + item.binNo.toString(),
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
                           ),
                         ),
                         IconButton(
@@ -216,7 +253,8 @@ class _StepperWidgetState extends State<StepperWidget> {
                               showDialog(
                                 context: context,
                                 builder: (BuildContext context) =>
-                                    _buildEditBinPopUpDialog(context),
+                                    _buildEditBinPopUpDialog(
+                                        context, batchController),
                               );
                             },
                             icon: Icon(
@@ -248,7 +286,8 @@ class _StepperWidgetState extends State<StepperWidget> {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) =>
-                                _buildAddNotesPopUpDialog(context),
+                                _buildAddNotesPopUpDialog(
+                                    context, batchController),
                           );
                         },
                         child: const Text('Add Notes'),

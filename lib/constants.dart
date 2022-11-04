@@ -10,11 +10,14 @@ const batchPickingData = [
   {
     "id": 1,
     "name": "Batch Picking 1",
+    "isComplete": false,
     "items": [
       {
         "name": "Maggi Concentrated Vegetarian",
         "binNo": 123,
         "img": "assets/maggi_concentrated_vegetarian.jpg",
+        "notes": "",
+        "isPicked": false,
         "orders": [
           {"quantity": "2 BTL", "orderNo": 779},
           {"quantity": "3 BTL", "orderNo": 782}
@@ -24,6 +27,8 @@ const batchPickingData = [
         "name": "Maggi Noodles",
         "binNo": 234,
         "img": "assets/maggi_noodles.jpg",
+        "notes": "",
+        "isPicked": false,
         "orders": [
           {"quantity": "1 BOX", "orderNo": 780},
           {"quantity": "1 BOX", "orderNo": 781}
@@ -33,6 +38,8 @@ const batchPickingData = [
         "name": "Maggi Concentrated Vegetarian",
         "binNo": 123,
         "img": "assets/maggi_concentrated_vegetarian.jpg",
+        "notes": "",
+        "isPicked": false,
         "orders": [
           {"quantity": "2 BTL", "orderNo": 779},
           {"quantity": "3 BTL", "orderNo": 782}
@@ -42,6 +49,8 @@ const batchPickingData = [
         "name": "Maggi Noodles",
         "binNo": 234,
         "img": "assets/maggi_noodles.jpg",
+        "notes": "",
+        "isPicked": false,
         "orders": [
           {"quantity": "1 BOX", "orderNo": 780},
           {"quantity": "1 BOX", "orderNo": 781}
@@ -51,6 +60,8 @@ const batchPickingData = [
         "name": "Maggi Concentrated Vegetarian",
         "binNo": 123,
         "img": "assets/maggi_concentrated_vegetarian.jpg",
+        "notes": "",
+        "isPicked": false,
         "orders": [
           {"quantity": "2 BTL", "orderNo": 779},
           {"quantity": "3 BTL", "orderNo": 782}
@@ -60,6 +71,8 @@ const batchPickingData = [
         "name": "Maggi Noodles",
         "binNo": 234,
         "img": "assets/maggi_noodles.jpg",
+        "notes": "",
+        "isPicked": false,
         "orders": [
           {"quantity": "1 BOX", "orderNo": 780},
           {"quantity": "1 BOX", "orderNo": 781}
@@ -69,6 +82,8 @@ const batchPickingData = [
         "name": "Maggi Concentrated Vegetarian",
         "binNo": 123,
         "img": "assets/maggi_concentrated_vegetarian.jpg",
+        "notes": "",
+        "isPicked": false,
         "orders": [
           {"quantity": "2 BTL", "orderNo": 779},
           {"quantity": "3 BTL", "orderNo": 782}
@@ -78,6 +93,8 @@ const batchPickingData = [
         "name": "Maggi Noodles",
         "binNo": 234,
         "img": "assets/maggi_noodles.jpg",
+        "notes": "",
+        "isPicked": false,
         "orders": [
           {"quantity": "1 BOX", "orderNo": 780},
           {"quantity": "1 BOX", "orderNo": 781}
@@ -86,13 +103,16 @@ const batchPickingData = [
     ],
   },
   {
-    "id": 1,
+    "id": 2,
     "name": "Batch Picking 2",
+    "isComplete": false,
     "items": [
       {
         "name": "Maggi Concentrated Vegetarian",
         "binNo": 123,
+        "isPicked": false,
         "img": "assets/maggi_concentrated_vegetarian.jpg",
+        "notes": "",
         "orders": [
           {"quantity": "2 BTL", "orderNo": 780},
           {"quantity": "3 BTL", "orderNo": 782}
@@ -101,7 +121,9 @@ const batchPickingData = [
       {
         "name": "Maggi Noodles",
         "binNo": 234,
+        "isPicked": false,
         "img": "assets/maggi_noodles.jpg",
+        "notes": "",
         "orders": [
           {"quantity": "1 BOX", "orderNo": 780},
           {"quantity": "1 BOX", "orderNo": 781}
