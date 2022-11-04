@@ -37,8 +37,7 @@ class Items {
     required this.img,
   });
   late final String name, img;
-  late String notes;
-  late int binNo;
+  late String notes, binNo;
   late bool isPicked;
   late final List<Orders> orders;
 

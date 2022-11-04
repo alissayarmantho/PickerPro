@@ -15,11 +15,14 @@ class BaseApi {
   }
 
   static Future<dynamic> post(
-      {required String url, required Map<String, dynamic> body}) async {
+      {required String url,
+      required Map<String, dynamic> body,
+      required token}) async {
     return await client.post(
       Uri.parse(url),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': 'Bearer $token',
       },
       body: jsonEncode(body),
     );

@@ -24,7 +24,7 @@ class BatchService {
   }
 
   static Future<List<Batch>> updateBinNumber(
-      {required String name, required int binNo}) async {
+      {required String name, required String binNo}) async {
     String url = baseApi + "/getExampleJson";
     try {
       var response = await BaseApi.get(url: url);

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:picker_pro/constants.dart';
 import 'package:picker_pro/models/batch.dart';
+import 'package:picker_pro/services/base_api.dart';
 import 'package:picker_pro/services/batch.dart';
 
 class BatchController extends GetxController {
@@ -67,10 +69,7 @@ class BatchController extends GetxController {
     }
   }
 
-  void updateBinNumber(int? val) async {
-    if (val == null) {
-      return;
-    }
+  void updateBinNumber(String val) async {
     isLoading(true);
     batches[activeBatchIndex.value].items[activeItemIndex.value].binNo = val;
     try {
@@ -252,6 +251,36 @@ class BatchController extends GetxController {
 
   void notifyStock() async {
     isLoading(true);
+
+    await BaseApi.post(
+        url: whatsappUrl,
+        body: {
+          "messaging_product": "whatsapp",
+          "to": pickerNo,
+          "type": "template",
+          "template": {
+            "name": "stock_update",
+            "language": {"code": "en_US"},
+            "components": [
+              {
+                "type": "body",
+                "parameters": [
+                  {
+                    "type": "text",
+                    "text": batches[activeBatchIndex.value]
+                            .items[activeItemIndex.value]
+                            .name +
+                        " at bin " +
+                        batches[activeBatchIndex.value]
+                            .items[activeItemIndex.value]
+                            .binNo
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        token: token);
 
     try {
       await BatchService.sendNotification().then((res) {

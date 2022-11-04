@@ -75,10 +75,6 @@ Widget _buildEditBinPopUpDialog(
         TextFormField(
           controller: _binNumController,
           style: TextStyle(fontSize: 18),
-          keyboardType: TextInputType.number,
-          inputFormatters: <TextInputFormatter>[
-            FilteringTextInputFormatter.digitsOnly
-          ],
           decoration: InputDecoration(
             hintText: 'Bin Number',
             enabledBorder: UnderlineInputBorder(
@@ -110,7 +106,7 @@ Widget _buildEditBinPopUpDialog(
         text: "Save",
         key: UniqueKey(),
         press: () {
-          batchController.updateBinNumber(int.tryParse(_binNumController.text));
+          batchController.updateBinNumber(_binNumController.text);
           Navigator.pop(context);
         },
         widthRatio: 0.3,

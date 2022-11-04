@@ -5,6 +5,10 @@ const primaryDarkColor = Color.fromRGBO(101, 0, 0, 1);
 const primaryLightColor = Color.fromRGBO(234, 204, 205, 1);
 const primaryAccentColor = Color.fromRGBO(212, 79, 91, 1);
 
+const token = "";
+const whatsappUrl = "";
+const pickerNo = "";
+
 const routeId = "1480106";
 const batchPickingData = [
   {
@@ -14,7 +18,7 @@ const batchPickingData = [
     "items": [
       {
         "name": "Maggi Concentrated Vegetarian",
-        "binNo": 123,
+        "binNo": "9-LF2",
         "img": "assets/maggi_concentrated_vegetarian.jpg",
         "notes": "",
         "isPicked": false,
@@ -25,7 +29,7 @@ const batchPickingData = [
       },
       {
         "name": "Maggi Noodles",
-        "binNo": 234,
+        "binNo": "9-LD2",
         "img": "assets/maggi_noodles.jpg",
         "notes": "",
         "isPicked": false,
@@ -36,7 +40,7 @@ const batchPickingData = [
       },
       {
         "name": "Maggi Concentrated Vegetarian",
-        "binNo": 123,
+        "binNo": "9-LF2",
         "img": "assets/maggi_concentrated_vegetarian.jpg",
         "notes": "",
         "isPicked": false,
@@ -47,7 +51,7 @@ const batchPickingData = [
       },
       {
         "name": "Maggi Noodles",
-        "binNo": 234,
+        "binNo": "9-LD2",
         "img": "assets/maggi_noodles.jpg",
         "notes": "",
         "isPicked": false,
@@ -58,7 +62,7 @@ const batchPickingData = [
       },
       {
         "name": "Maggi Concentrated Vegetarian",
-        "binNo": 123,
+        "binNo": "9-LF2",
         "img": "assets/maggi_concentrated_vegetarian.jpg",
         "notes": "",
         "isPicked": false,
@@ -69,7 +73,7 @@ const batchPickingData = [
       },
       {
         "name": "Maggi Noodles",
-        "binNo": 234,
+        "binNo": "9-LD2",
         "img": "assets/maggi_noodles.jpg",
         "notes": "",
         "isPicked": false,
@@ -80,7 +84,7 @@ const batchPickingData = [
       },
       {
         "name": "Maggi Concentrated Vegetarian",
-        "binNo": 123,
+        "binNo": "9-LF2",
         "img": "assets/maggi_concentrated_vegetarian.jpg",
         "notes": "",
         "isPicked": false,
@@ -91,7 +95,7 @@ const batchPickingData = [
       },
       {
         "name": "Maggi Noodles",
-        "binNo": 234,
+        "binNo": "9-LD2",
         "img": "assets/maggi_noodles.jpg",
         "notes": "",
         "isPicked": false,
@@ -109,7 +113,7 @@ const batchPickingData = [
     "items": [
       {
         "name": "Maggi Concentrated Vegetarian",
-        "binNo": 123,
+        "binNo": "9-LF2",
         "isPicked": false,
         "img": "assets/maggi_concentrated_vegetarian.jpg",
         "notes": "",
@@ -120,7 +124,7 @@ const batchPickingData = [
       },
       {
         "name": "Maggi Noodles",
-        "binNo": 234,
+        "binNo": "9-LD2",
         "isPicked": false,
         "img": "assets/maggi_noodles.jpg",
         "notes": "",
