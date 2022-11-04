@@ -20,6 +20,7 @@ class BatchController extends GetxController {
   void nextBatchIndex() {
     var nextIndex = activeBatchIndex.value + 1;
     if (nextIndex < batches.length) {
+      activeItemIndex.value = 0;
       activeBatchIndex.value = nextIndex;
     }
   }
@@ -27,6 +28,7 @@ class BatchController extends GetxController {
   void prevBatchIndex() {
     var prevIndex = activeBatchIndex.value - 1;
     if (prevIndex >= 0) {
+      activeItemIndex.value = 0;
       activeBatchIndex.value = prevIndex;
     }
   }

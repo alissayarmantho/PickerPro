@@ -18,7 +18,7 @@ Widget _buildAddNotesPopUpDialog(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10),
     ),
-    title: const Text('Add Notes'),
+    title: const Text('Add/View Notes'),
     content: new Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -149,9 +149,8 @@ class _StepperWidgetState extends State<StepperWidget> {
                     text: "Picked",
                     press: () async {
                       batchController.postItemPicked();
-                      details.onStepContinue!();
                     },
-                    widthRatio: 0.20,
+                    widthRatio: 0.21,
                     marginLeft: 0,
                     marginRight: 5,
                   ),
@@ -161,7 +160,8 @@ class _StepperWidgetState extends State<StepperWidget> {
                     press: () async {
                       batchController.notifyStock();
                     },
-                    widthRatio: 0.30,
+                    onPressColor: Colors.red.shade50,
+                    widthRatio: 0.32,
                     marginLeft: 0,
                     marginRight: 5,
                   ),
@@ -208,7 +208,7 @@ class _StepperWidgetState extends State<StepperWidget> {
                     item.name,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: 18,
                     ),
                   ),
                 ),
@@ -266,6 +266,8 @@ class _StepperWidgetState extends State<StepperWidget> {
                     ),
                   ),
                   Row(
+                    // mainAxisAlignment: MainAxisAlignment.start,
+                    // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         item.orders
@@ -278,9 +280,7 @@ class _StepperWidgetState extends State<StepperWidget> {
                           fontSize: 16,
                         ),
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
+                      SizedBox(width: 5),
                       TextButton(
                         onPressed: () {
                           showDialog(
@@ -290,8 +290,39 @@ class _StepperWidgetState extends State<StepperWidget> {
                                     context, batchController),
                           );
                         },
-                        child: const Text('Add Notes'),
+                        child: const Text('Notes'),
                       ),
+                      // SizedBox(height: 10),
+                      // ElevatedButton.icon(
+                      //   style: ButtonStyle(
+                      //     elevation: MaterialStateProperty.all(0),
+                      //     backgroundColor:
+                      //         MaterialStateProperty.resolveWith<Color>(
+                      //       (Set<MaterialState> states) {
+                      //         if (states.contains(MaterialState.pressed)) {
+                      //           return Colors.red.shade50;
+                      //         }
+                      //         return primaryLightColor;
+                      //       },
+                      //     ),
+                      //   ),
+                      //   onPressed: () {
+                      //     showDialog(
+                      //       context: context,
+                      //       builder: (BuildContext context) =>
+                      //           _buildAddNotesPopUpDialog(
+                      //               context, batchController),
+                      //     );
+                      //   },
+                      //   icon: Icon(
+                      //     Icons.note_alt_rounded,
+                      //     color: primaryColor,
+                      //   ),
+                      //   label: Text(
+                      //     'Add/View Notes',
+                      //     style: TextStyle(color: Colors.black),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ],

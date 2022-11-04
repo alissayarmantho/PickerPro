@@ -4,7 +4,7 @@ import 'package:picker_pro/constants.dart';
 class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback press;
-  final Color color, textColor, loadingSpinnerColor;
+  final Color color, textColor, loadingSpinnerColor, onPressColor;
   final double widthRatio, marginLeft, marginRight, marginTop, marginBottom;
 
   final bool isLoading;
@@ -20,6 +20,7 @@ class PrimaryButton extends StatelessWidget {
     this.marginBottom = 10,
     this.isLoading = false,
     this.color = primaryColor,
+    this.onPressColor = primaryAccentColor,
     this.textColor = Colors.white,
     this.loadingSpinnerColor = Colors.white,
   }) : super(key: key);
@@ -38,7 +39,7 @@ class PrimaryButton extends StatelessWidget {
               backgroundColor: MaterialStateProperty.resolveWith<Color>(
                 (Set<MaterialState> states) {
                   if (states.contains(MaterialState.pressed)) {
-                    return primaryAccentColor;
+                    return onPressColor;
                   }
                   return color; // Use the component's default.
                 },

@@ -5,7 +5,7 @@ import 'package:picker_pro/widgets/primary_button.dart';
 class SecondaryButton extends StatelessWidget {
   final String text;
   final VoidCallback press;
-  final Color color, textColor, loadingSpinnerColor;
+  final Color color, textColor, loadingSpinnerColor, onPressColor;
   final double widthRatio, marginLeft, marginRight, marginTop, marginBottom;
   final bool isLoading;
 
@@ -20,6 +20,7 @@ class SecondaryButton extends StatelessWidget {
     this.marginBottom = 10,
     this.isLoading = false,
     this.color = primaryColor,
+    this.onPressColor = primaryAccentColor,
     this.textColor = Colors.white,
     this.loadingSpinnerColor = Colors.white,
   }) : super(key: key);
@@ -32,6 +33,7 @@ class SecondaryButton extends StatelessWidget {
       press: press,
       widthRatio: widthRatio,
       color: primaryLightColor,
+      onPressColor: onPressColor,
       textColor: Colors.black,
       loadingSpinnerColor: Colors.black,
       marginBottom: marginBottom,

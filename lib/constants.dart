@@ -114,7 +114,7 @@ const batchPickingData = [
         "img": "assets/maggi_concentrated_vegetarian.jpg",
         "notes": "",
         "orders": [
-          {"quantity": "2 BTL", "orderNo": 780},
+          {"quantity": "1 BOX", "orderNo": 780},
           {"quantity": "3 BTL", "orderNo": 782}
         ]
       },
