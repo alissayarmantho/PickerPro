@@ -40,44 +40,44 @@ class _ItemDraggableScrollSheetState extends State<ItemDraggableScrollSheet> {
           bottom: _fabPosition + _fabPositionPadding,
           right: _fabPositionPadding,
           child: Row(children: [
-            Obx(
-              () => FloatingActionButton(
-                heroTag: "prev_batch",
-                child: const Icon(Icons.arrow_back_rounded),
-                disabledElevation: 0,
-                backgroundColor: batchController.activeBatchIndex.value == 0
-                    ? Colors.grey.shade300
-                    : null,
-                onPressed: batchController.activeBatchIndex.value == 0
-                    ? null
-                    : () {
-                        batchController.prevBatchIndex();
-                      },
-              ),
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            Obx(
-              () => FloatingActionButton(
-                heroTag: "next_batch",
-                backgroundColor: batchController.activeBatchIndex.value ==
-                        batchController.batches.length - 1
-                    ? Colors.grey.shade300
-                    : null,
-                disabledElevation: 0,
-                child: const Icon(Icons.arrow_forward_rounded),
-                onPressed: batchController.activeBatchIndex.value ==
-                        batchController.batches.length - 1
-                    ? null
-                    : () {
-                        batchController.nextBatchIndex();
-                      },
-              ),
-            ),
-            SizedBox(
-              width: 20,
-            ),
+            // Obx(
+            //   () => FloatingActionButton(
+            //     heroTag: "prev_batch",
+            //     child: const Icon(Icons.arrow_back_rounded),
+            //     disabledElevation: 0,
+            //     backgroundColor: batchController.activeBatchIndex.value == 0
+            //         ? Colors.grey.shade300
+            //         : null,
+            //     onPressed: batchController.activeBatchIndex.value == 0
+            //         ? null
+            //         : () {
+            //             batchController.prevBatchIndex();
+            //           },
+            //   ),
+            // ),
+            // SizedBox(
+            //   width: 20,
+            // ),
+            // Obx(
+            //   () => FloatingActionButton(
+            //     heroTag: "next_batch",
+            //     backgroundColor: batchController.activeBatchIndex.value ==
+            //             batchController.batches.length - 1
+            //         ? Colors.grey.shade300
+            //         : null,
+            //     disabledElevation: 0,
+            //     child: const Icon(Icons.arrow_forward_rounded),
+            //     onPressed: batchController.activeBatchIndex.value ==
+            //             batchController.batches.length - 1
+            //         ? null
+            //         : () {
+            //             batchController.nextBatchIndex();
+            //           },
+            //   ),
+            // ),
+            // SizedBox(
+            //   width: 20,
+            // ),
             Obx(
               () => FloatingActionButton(
                 heroTag: "complete_batch",

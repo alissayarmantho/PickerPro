@@ -8,7 +8,6 @@ const primaryAccentColor = Color.fromRGBO(212, 79, 91, 1);
 const token = "";
 const whatsappUrl = "";
 const pickerNo = "";
-
 const routeId = "1480106";
 const batchPickingData = [
   {
@@ -39,69 +38,14 @@ const batchPickingData = [
         ]
       },
       {
-        "name": "Maggi Concentrated Vegetarian",
-        "binNo": "9-LF2",
-        "img": "assets/maggi_concentrated_vegetarian.jpg",
+        "name": "Saporito",
+        "binNo": "10-LD3",
+        "img": "assets/saporito.jpeg",
         "notes": "",
         "isPicked": false,
         "orders": [
-          {"quantity": "2 BTL", "orderNo": 779},
-          {"quantity": "3 BTL", "orderNo": 782}
-        ]
-      },
-      {
-        "name": "Maggi Noodles",
-        "binNo": "9-LD2",
-        "img": "assets/maggi_noodles.jpg",
-        "notes": "",
-        "isPicked": false,
-        "orders": [
-          {"quantity": "1 BOX", "orderNo": 780},
-          {"quantity": "1 BOX", "orderNo": 781}
-        ]
-      },
-      {
-        "name": "Maggi Concentrated Vegetarian",
-        "binNo": "9-LF2",
-        "img": "assets/maggi_concentrated_vegetarian.jpg",
-        "notes": "",
-        "isPicked": false,
-        "orders": [
-          {"quantity": "2 BTL", "orderNo": 779},
-          {"quantity": "3 BTL", "orderNo": 782}
-        ]
-      },
-      {
-        "name": "Maggi Noodles",
-        "binNo": "9-LD2",
-        "img": "assets/maggi_noodles.jpg",
-        "notes": "",
-        "isPicked": false,
-        "orders": [
-          {"quantity": "1 BOX", "orderNo": 780},
-          {"quantity": "1 BOX", "orderNo": 781}
-        ]
-      },
-      {
-        "name": "Maggi Concentrated Vegetarian",
-        "binNo": "9-LF2",
-        "img": "assets/maggi_concentrated_vegetarian.jpg",
-        "notes": "",
-        "isPicked": false,
-        "orders": [
-          {"quantity": "2 BTL", "orderNo": 779},
-          {"quantity": "3 BTL", "orderNo": 782}
-        ]
-      },
-      {
-        "name": "Maggi Noodles",
-        "binNo": "9-LD2",
-        "img": "assets/maggi_noodles.jpg",
-        "notes": "",
-        "isPicked": false,
-        "orders": [
-          {"quantity": "1 BOX", "orderNo": 780},
-          {"quantity": "1 BOX", "orderNo": 781}
+          {"quantity": "1 BTL", "orderNo": 780},
+          {"quantity": "1 BTL", "orderNo": 781}
         ]
       }
     ],
@@ -118,7 +62,7 @@ const batchPickingData = [
         "img": "assets/maggi_concentrated_vegetarian.jpg",
         "notes": "",
         "orders": [
-          {"quantity": "1 BOX", "orderNo": 780},
+          {"quantity": "1 BTL", "orderNo": 780},
           {"quantity": "3 BTL", "orderNo": 782}
         ]
       },
@@ -131,6 +75,17 @@ const batchPickingData = [
         "orders": [
           {"quantity": "1 BOX", "orderNo": 780},
           {"quantity": "1 BOX", "orderNo": 781}
+        ]
+      },
+      {
+        "name": "Prima Plain Flour",
+        "binNo": "8-LA3",
+        "img": "assets/primaflour.png",
+        "notes": "",
+        "isPicked": false,
+        "orders": [
+          {"quantity": "1 PKT", "orderNo": 779},
+          {"quantity": "2 PKT", "orderNo": 768}
         ]
       }
     ],

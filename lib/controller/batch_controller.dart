@@ -72,6 +72,22 @@ class BatchController extends GetxController {
   void updateBinNumber(String val) async {
     isLoading(true);
     batches[activeBatchIndex.value].items[activeItemIndex.value].binNo = val;
+
+    var updatingItem =
+        batches[activeBatchIndex.value].items[activeItemIndex.value];
+
+    for (var i = 0; i < batches.length; i++) {
+      var currBatch = batches[i];
+      for (var j = 0; j < currBatch.items.length; j++) {
+        var currItem = currBatch.items[j];
+
+        // using item name as unique identifier
+        if (currItem.name == updatingItem.name) {
+          currItem.binNo = val;
+        }
+      }
+    }
+
     try {
       await BatchService.updateBinNumber(
               name: batches[activeBatchIndex.value]
